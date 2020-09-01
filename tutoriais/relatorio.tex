@@ -1,0 +1,28 @@
+\documentclass{article}
+\input{formatacao}
+
+% Capa
+\title{Relatório dos tutoriais de \textit{Git} e \textit{Github}}
+\date{Setembro de 2020}
+\author{Amanda Basso de Oliveira}
+
+\begin{document}
+    % Desativa numeração automática para capa
+    \pagenumbering{gobble}
+    %\maketitle
+    \input{capa}
+
+    % Adiciona tabela de figuras e sumário
+    \newpage
+    \listoffigures
+    \newpage
+    \tableofcontents
+    \newpage
+
+    %Relatorio
+    \pagenumbering{arabic}
+    \input{hello_world}
+    \newpage
+    \input{fork}
+\end{document}
+

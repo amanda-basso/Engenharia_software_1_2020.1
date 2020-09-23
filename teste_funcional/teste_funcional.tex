@@ -1,0 +1,62 @@
+% Tabela para teste funcional
+\begin{center}
+\begin{tabular}{||c c c c c||}
+\hline
+ID & Funcionalidade & Cond. e Variáveis & Observações & Resposta Esperada \\ [0.5ex]
+\hline\hline
+1 & Login no sistema & E-mail correto e senha correta & \multicolumn{1}{m{3cm}}{Senha com pelo menos 6 caracteres e ao menos uma letra e um número} & Login \\
+\hline
+2 & Login no sistema & E-mail incorreto & \multicolumn{1}{m{3cm}}{E-mail com domínio digitado incorretamente} & \multicolumn{1}{m{3cm}}{Formato de E-mail inválido} \\
+\hline
+3 & Login no sistema & E-mail incorreto & \multicolumn{1}{m{3cm}}{E-mail não cadastrado como login} & \multicolumn{1}{m{3cm}}{O e-mail ou a senha digitada está incorreta. Por favor, tente novamente.} \\
+\hline
+4 & Login no sistema & E-mail correto e senha incorreta & \multicolumn{1}{m{3cm}}{Senha com menos de 4 caracteres} & \multicolumn{1}{m{3cm}}{O campo Senha deve ter entre 4 e 18 caracteres} \\
+\hline
+5 & Login no sistema & E-mail correto e senha incorreta & \multicolumn{1}{m{3cm}}{Senha com número de caracteres entre 4 e 18, mas sem letra} & \multicolumn{1}{m{3cm}}{O e-mail ou a senha digitada está incorreta. Por favor, tente novamente.} \\
+\hline
+6 & Login no sistema & E-mail correto e senha incorreta & \multicolumn{1}{m{3cm}}{Senha com número de caracteres entre 4 e 18, mas sem número} & \multicolumn{1}{m{3cm}}{O e-mail ou a senha digitada está incorreta. Por favor, tente novamente.} \\
+\hline
+7 & Login no sistema & E-mail correto e senha incorreta & \multicolumn{1}{m{3cm}}{Senha com número de caracteres acima de 18} & \multicolumn{1}{m{3cm}}{O e-mail ou a senha digitada está incorreta. Por favor, tente novamente.} \\
+\hline
+8 & Login no sistema & E-mail correto e novo cadastro & \multicolumn{1}{m{3cm}}{Opção para primeira compra selecionada} & \multicolumn{1}{m{3cm}}{Prosseguimento para identificação do novo usuário.} \\
+\hline
+9 & Login no sistema & E-mail incorreto e novo cadastro & \multicolumn{1}{m{3cm}}{Opção para primeira compra selecionada. E-mail com domínio incompleto.} & \multicolumn{1}{m{3cm}}{Formato de E-mail inválido} \\
+\hline
+\end{tabular}
+
+\end{center}
+
+%Adicionar itens ao carrinho
+\begin{center}
+\begin{tabular}{||c c c c c||}
+\hline
+ID & Funcionalidade & Cond. e Variáveis & Observações & Resposta Esperada \\ [0.5ex]
+\hline\hline
+10 & Adicionar item & \multicolumn{1}{m{3cm}}{Produto disponível} & \multicolumn{1}{m{3cm}}{Clique no botão de comprar} & \multicolumn{1}{m{3cm}}{Redirecionamento para carrinho} \\
+\hline
+11 & Adicionar item & \multicolumn{1}{m{3cm}}{Produto indisponível} & \multicolumn{1}{m{3cm}}{Opção para receber e-mail se o produto tornar-se disponível} & \multicolumn{1}{m{3cm}}{Não é possível adicionar itens indisponíveis no carrinho.} \\
+\hline
+12 & Adicionar item & \multicolumn{1}{m{3cm}}{Quantidade = 1 e cep incorreto} & \multicolumn{1}{m{3cm}}{Dentro da página do carrinho, após clicar em comprar. Cep incompleto} & \multicolumn{1}{m{3cm}}{O sistema prossegue para página de identificação e não identifica informação inválida.} \\
+\hline
+13 & Adicionar item & Quantidade = 1 e cep incorreto & \multicolumn{1}{m{3cm}}{Dentro da página do carrinho, após clicar em comprar. Cep constuído por letras} & \multicolumn{1}{m{3cm}}{O sistema não permite a digitação do cep, as letras são apagadas} \\
+\hline
+14 & Adicionar item & Quantidade = 1 e cep correto & \multicolumn{1}{m{3cm}}{Dentro da página do carrinho, após clicar em comprar.} & \multicolumn{1}{m{3cm}}{O sistema informa, para os produtos selecionados: "Desculpe! No momento este produto não pode ser entregue na região informada."} \\
+\hline
+15 & Adicionar item & Quantidade = 1 e cep correto & \multicolumn{1}{m{3cm}}{Dentro da página do carrinho, após clicar em comprar. Utilizou-se outro cep, na cidade de São Paulo} & \multicolumn{1}{m{3cm}}{O sistema informa o prazo, as opções de entrega e os valores. Adiciona, ao valor total da compra, o valor subtotal do frete."} \\
+\hline
+16 & Adicionar item & Quantidade = 1 e diminuição da quantidade & \multicolumn{1}{m{3cm}}{Na página do carrinho, reduzir a quantidade de 1 para 0} & \multicolumn{1}{m{3cm}}{O sistema remove o produto do carrinho.} \\
+\hline
+17 & Adicionar item & Quantidade = 1 e aumento da quantidade & \multicolumn{1}{m{3cm}}{Aumentar a quantidade utilizando as setas.} & \multicolumn{1}{m{3cm}}{O sistema permite quantidades até 6} \\
+\hline
+18 & Adicionar item & Quantidade = 1 e aumento da quantidade manual & \multicolumn{1}{m{3cm}}{Aumentar quantidade utilizando a caixa de texto} & \multicolumn{1}{m{3cm}}{Para quantidades maiores que 7, o valor é reajustado para 6} \\
+\hline
+19 & Adicionar item & Quantidade = 1 e cupom válido & \multicolumn{1}{m{3cm}}{Inserção de cupom válido (não foi testado por não saber cupom válido)} & \multicolumn{1}{m{3cm}}{**A saída esperada é o desconto do valor ofertado pelo cupom do valor total do carrinho. Ao prosseguir para a próxima página, o valor total com desconto seria mantido.} \\
+\hline
+20 & Adicionar item & Quantidade = 1 e cupom inválido & \multicolumn{1}{m{3cm}}{Inserção de cupom inválido} & \multicolumn{1}{m{3cm}}{O Sistema notifica: "O Cupom digitado não é válido. Confira se o código digitado está correto, ou, se uma promoção melhor está sendo aplicada em seu carrinho de compras.". No entanto, permite prosseguir para próxima página, sem aplicar cupons.} \\
+\hline
+21 & Adicionar item & Valor do carrinho acima de 50k & \multicolumn{1}{m{3cm}}{Tentativa de adicionar itens de modo que a quantidade seja menor ou igual a 6, mas o valor seja acima de 50k} & \multicolumn{1}{m{3cm}}{O sistema informa: "Desculpe, mas só é possível inserir até R\$50.000,00 no caminhão. Para comprar mais itens entre em contato com o TeleVendas no 4003-2773.". A quantidade permanece a mesma, cujo valor seja inferior a 50k.} \\
+\hline
+
+\end{tabular}
+
+\end{center}

@@ -1,0 +1,42 @@
+\section{Novidades do JUnit 5}
+    \subsection{Diferenças na arquitetura}
+        Em relação à arquitetura, o JUnit passou a ser constituído como uma junção de diferentes módulos: o JUnit Plataform - descobre e executa os testes na JVM -, o JUnit Jupiter - contém os novos recursos para testes - e o JUnit Vintage - fornece a \textit{TestEngine} para os testes escritos em JUnit 3 ou 4.
+
+    \subsection{Diferenças no código}
+        \par Embora o JUnit 5 mantenha a notação \textit{@Test} do JUnit 4 para dizer que o método é um teste, o JUnit não possui mais os dois parâmetros \textit{timeout} e \textit{expected}.
+        \subsubsection{\textit{Timeout}}
+        \par Nas versões anteriores, o JUnit iniciava a medição do tempo de execução junto com o início do método do teste em vez de verificar apenas o timeout do código que estava sendo testado. A forma de verificar \textit{timeouts} no JUnit 5 é utilizando o método \textit{assertTimeout}.  
+        \newline
+        \par O método \textit{assertTimeout} recebe dois argumentos. O primeiro deles representa um objeto do tipo \textit{Duration} e representa quantidade de tempo. O segundo é um \textit{Executable}.
+        \newline
+        \par Visto que a execução aguardou o bloco terminar - o \textit{Executable} é executado na mesma thread do teste, é possível saber a diferença entre o tempo total da execução e o \textit{timeout} esperado.
+        \newline
+        \par Contudo, para casos em que o código leva mais tempo para executar do que o \textit{timeout} estabelecido, existe o método \textit{assertTimeoutPreemptively}. Este método é executado em uma thread separada e a execução é interrompida assim que o \textit{timeout} seja excedido.
+        \subsubsection{\textit{Expected}}
+        Para testar códigos que lançam exceções, agora é utilizado o método \textit{assertThrows}. É necessário especificar o tipo da exceção esperada no primeiro parâmetro e um \textit{Executable} no segundo.
+        \newline
+        \par É possível utilizar o mesmo método para capturar a exceção lançada na implementação de alguma validação, ao contrário do JUnit 4, que exigiria o uso da classe \textit{ExpectedException}.
+        \subsubsection{Repetição de testes}
+        O JUnit 5 permite a repetição de testes \textit{n} vezes utilizando o método \textit{RepeatedTest}. Possui, ainda, um parâmetro chamado \textit{name} que é utilizado para gerenciar a saída do teste.
+        \subsubsection{Assertions}
+        A classe \textit{Assert} foi substituída pela classe \textit{Assertion}, embora tenha a mesma finalidade - fornecer os métodos \textit{assert}, que validam as condições que determinam se um teste passou ou não. A única diferença entre os métodos das versões anteriores é que o argumento que permitia a sobrecarga passou a ser o último, em vez de ser o primeiro.
+        \newline
+        \par \textit{assertAll} é um novo método que permite executar um conjunto de testes que serão validados juntamente.
+        \subsubsection{Testes aninhados}
+        O JUnit 5 introduziu a notação \textit{@Nested} para teste de classes que possuem vários métodos que dependem do estado interno do objeto para execução.
+        \subsubsection{Testes parametrizados}
+        Como novidade do JUnit 5, o suporte para testes parametrizados está em módulo separado do JUnit Jupiter e, por isso, é necessário adicionar dependências. Através dele, é possível injetar os parâmetros diretamente no método \textit{factory method}.
+        \subsubsection{Testes dinâmicos}
+        É possível construir testes em tempo de execução no JUnit 5. Os testes dinâmicos são criados em um método chamado \textit{TestFactory}.
+        \par Visto que o teste é construído no código, os recursos do Java o parametrizam.
+        \subsubsection{Interfaces para testes}
+        Com JUnit 5, é possível criar interfaces que funcionam como \textit{templates} de testes e inclui-las na assinatura das classes de teste específicas. Isso ocorre porque as anotações podem ser incluídas em métodos default de interfaces.
+        \newline
+        \par Ainda é possível implementar espécie de herança no JUnit 5, como métodos de teste na superclasse, porque os métodos são herdados - como nas versões antigas.
+        \subsubsection{\textit{@TestInstance}}
+        Agora é possível executar o teste utilizando instâncias das classes previamente instanciadas através da notação \textit{@TestInstance}, de modo a quebrar o princípio do isolamento.
+        \subsubsection{\textit{@DisplayName}}
+        Essa notação permite descrever mais claramente o teste.
+        \subsubsection{Mudanças de notação}
+        \textit{@BeforeEach} e \textit{@AfterEach} substituíram as antigas \textit{@Before} e \textit{@After}, respectivamente.
+        De forma análoga, as anotações \textit{@BeforeClass} e \textit{@AfterClass} foram substituídas por \textit{@BeforeAll} e \textit{@AfterAll}.

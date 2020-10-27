@@ -1,0 +1,41 @@
+\documentclass{article}
+\input{formatacao}
+
+% Capa
+\title{Relatório 2 do Projeto Prático}
+\date{Outubro de 2020}
+\author{Amanda Basso de Oliveira - 727331 \\
+        Jorge Vinicius Gonçalves - 758594 \\
+        Lucas Cruz Reis - 754757 \\
+        Lucas Martins de Almeida - 758983 \\
+        Matheus Schmidt Figueiredo - 758616 \\
+        Pabolo Vinicius da Rosa Pires - 760648}
+
+\begin{document}
+    % Desativa numeração automática para capa
+    \pagenumbering{gobble}
+    %\maketitle
+    \input{capa}
+
+    % Adiciona tabela de figuras e sumário
+    \newpage
+    \listoffigures
+    \newpage
+    \tableofcontents
+    \newpage
+
+    %Relatorio
+    \pagenumbering{arabic}
+    \input{scrum}
+    \newpage
+    \input{manutencao}
+    \newpage
+    \input{github}
+    \newpage
+    \input{testes}
+    \newpage
+    \input{conclusao}
+    \newpage
+    \input{referencias}
+\end{document}
+
